@@ -58,6 +58,14 @@ namespace MvcCoreStorage.Services
             }
             return clientes;
         }
+        public async Task<List<Cliente>> GetClientesEmpresaAsync
+            (string empresa)
+        {
+            var query =
+                 this.tableCliente.Query<Cliente>
+                 (x => x.Empresa == empresa);
+            return query.ToList();
+        }
 
     }
 }
